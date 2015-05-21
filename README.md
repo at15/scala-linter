@@ -19,3 +19,11 @@ Detect the following three types of deadcode
 - [ ] T3 T2 which throw exception or cause IO
 - [ ] apply it to a small project
 - [ ] autofixer
+
+## Similar projects
+
+These projects also include similar projects in their readme
+
+https://github.com/HairyFotr/linter
+https://github.com/scalastyle/scalastyle
+https://github.com/scala/scala-abide
