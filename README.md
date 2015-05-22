@@ -23,6 +23,7 @@ Detect the following three types of deadcode
 ## Ref sites
 
 http://lampwww.epfl.ch/~magarcia/ScalaCompilerCornerReloaded/
+https://github.com/ymasory/alacs/blob/master/dev/resources.md
 
 ## Similar projects
 
@@ -33,7 +34,7 @@ https://github.com/scalastyle/scalastyle
 https://github.com/scala/scala-abide
 
 scala-abide core rules Unused local definitions, Variables that are never assigned
-linter Unused xx ? 
+linter Unused xx ?
 
 ## Projects that may help
 
