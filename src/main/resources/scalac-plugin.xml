@@ -1,0 +1,4 @@
+<plugin>
+  <name>DeadCodeDetect</name>
+  <classname>org.dy.lint.DeadCodeDetectPlugin</classname>
+</plugin>
