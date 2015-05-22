@@ -8,3 +8,4 @@
 TODO: how to run `scalac` without installing it globally.
 - use it in `scalac` `scalac -Xplugin:scala-linter_2.11-0.0.1.jar unused.scala`
 - use it in `sbt` TODO
+TODO: run the compiled code
