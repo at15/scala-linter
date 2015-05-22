@@ -20,6 +20,10 @@ Detect the following three types of deadcode
 - [ ] apply it to a small project
 - [ ] autofixer
 
+## Ref sites
+
+http://lampwww.epfl.ch/~magarcia/ScalaCompilerCornerReloaded/
+
 ## Similar projects
 
 These projects also include similar projects in their readme
@@ -27,3 +31,13 @@ These projects also include similar projects in their readme
 https://github.com/HairyFotr/linter
 https://github.com/scalastyle/scalastyle
 https://github.com/scala/scala-abide
+
+scala-abide core rules Unused local definitions, Variables that are never assigned
+linter Unused xx ? 
+
+## Projects that may help
+
+- https://github.com/jrudolph/scalac-plugin.g8  // a template for scalac plugin using sbt
+- https://github.com/harrah/browse
+- https://github.com/jrudolph/scala-enhanced-strings
+- https://github.com/jrudolph/sbt-dependency-graph
