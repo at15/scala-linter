@@ -20,3 +20,13 @@ TODO
 ## Doc for scala beginners
 
 [How to use idea for sbt projects](idea.md)
+
+## Doc about compiler plugin
+
+TODO:
+
+- [ ] compile process
+- [ ] common terms
+- [ ] dead code detection method
+- [ ] type1(unreachable) dead code detection
+- [ ] unused variable detection

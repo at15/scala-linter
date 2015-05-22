@@ -29,16 +29,16 @@ https://github.com/ymasory/alacs/blob/master/dev/resources.md
 
 These projects also include similar projects in their readme
 
-https://github.com/HairyFotr/linter
-https://github.com/scalastyle/scalastyle
-https://github.com/scala/scala-abide
+- https://github.com/HairyFotr/linter
+- https://github.com/scala/scala-abide
+- https://github.com/scalastyle/scalastyle
 
 scala-abide core rules Unused local definitions, Variables that are never assigned
 linter Unused xx ?
 
 ## Projects that may help
 
-- https://github.com/jrudolph/scalac-plugin.g8  // a template for scalac plugin using sbt
-- https://github.com/harrah/browse
-- https://github.com/jrudolph/scala-enhanced-strings
-- https://github.com/jrudolph/sbt-dependency-graph
+- [x] https://github.com/jrudolph/scalac-plugin.g8  // a template for scalac plugin using sbt
+- [ ] https://github.com/harrah/browse
+- [ ] https://github.com/jrudolph/scala-enhanced-strings
+- [ ] https://github.com/jrudolph/sbt-dependency-graph
