@@ -10,7 +10,7 @@
 - use it in `scalac`
 ````
 scalac -Xplugin:scala-linter_2.11-0.0.1.jar unused.scala
-scala unused
+scala Unused // scala -classspath . Unused 
 ````
 TODO
 

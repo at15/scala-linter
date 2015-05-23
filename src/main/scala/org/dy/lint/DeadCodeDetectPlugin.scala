@@ -9,10 +9,11 @@ import nsc.transform.{ Transform, TypingTransformers }
 import nsc.symtab.Flags
 
 class DeadCodeDetectPlugin(val global: Global) extends Plugin {
-  import global._
+  import global._ // TODO: import what compiling code has imported?
 
   val name = "DeadCodeDetect"
-  val description = "$description$"
+  val description = "Dead Code Detection for scala"
+  // Define a List whose type is `PluginComponent` and values are the methods in this class
   val components = List[PluginComponent](ExampleComponent)
 
   // a sample component which is a transformer

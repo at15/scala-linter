@@ -6,4 +6,6 @@ scalaVersion := "2.11.6"
 
 description := "Dead code detection linter for scala"
 
-libraryDependencies <+= scalaVersion("org.scala-lang" % "scala-compiler" % _)
+libraryDependencies <+= scalaVersion { (scalaVersion) =>
+  "org.scala-lang" % "scala-compiler"  % scalaVersion
+}

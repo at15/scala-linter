@@ -10,8 +10,7 @@ Detect the following three types of deadcode
 
 ## TODO
 
-- [ ] write sample deadcode
-- [ ] init the sbt project for plugin
+
 - [ ] T1 statement after return
 - [ ] T1 if branch never executed, never match etc.
 - [ ] T2 unused var
@@ -19,6 +18,8 @@ Detect the following three types of deadcode
 - [ ] T3 T2 which throw exception or cause IO
 - [ ] apply it to a small project
 - [ ] autofixer
+- [x] write sample deadcode
+- [x] init the sbt project for plugin
 
 ## Ref sites
 
@@ -32,6 +33,8 @@ These projects also include similar projects in their readme
 - https://github.com/HairyFotr/linter
 - https://github.com/scala/scala-abide
 - https://github.com/scalastyle/scalastyle
+- https://github.com/puffnfresh/wartremover
+- https://github.com/sksamuel/scalac-scapegoat-plugin
 
 scala-abide core rules Unused local definitions, Variables that are never assigned
 linter Unused xx ?
