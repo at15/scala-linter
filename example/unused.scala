@@ -7,6 +7,11 @@ object Unused {
     println("This is a string")
   }
 
+  def div() = {
+    val a = 2 / 1
+    2 / 0
+  }
+
   // param never used
   def paramUnused(x: Int): Int = {
     1
