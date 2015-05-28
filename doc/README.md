@@ -18,6 +18,7 @@ TODO
 ## Other
 
 - [Resources](resources.md) useful projects and links
+- [Review](review/README.md) review about above resources 
 - [Compiler](compiler/README.md) basic knowledge about compiler and scala compiler
 - [Problems](problems/README.md) solved and pending problems
 - [How to use IDEA for sbt projects](idea.md)

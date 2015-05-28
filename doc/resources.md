@@ -19,6 +19,8 @@
 
 ## videos
 
+- [ ] http://www.scala-lang.org/old/node/598.html    code walk-through sessions by Martin Odersky about the Scala compiler internals
+
 ### Projects that may help
 
 They are not directly related, but have something to do with scala api I might need

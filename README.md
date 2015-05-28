@@ -2,9 +2,9 @@
 
 Experimental linter for scala dead code detection.
 
-[Road map](doc/roadmap.md)
-[Useful resources](doc/resources.md)
-[Other Documentation](doc/README.md)
+- [Road map](doc/roadmap.md)
+- [Useful resources](doc/resources.md)
+- [Other Documentation](doc/README.md)
 
 ## Similar projects
 
