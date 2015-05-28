@@ -2,6 +2,8 @@
 
 Experimental linter for scala dead code detection.
 
+Test if dead code is affecting scalac's speed.
+
 - [Road map](doc/roadmap.md)
 - [Useful resources](doc/resources.md)
 - [Other Documentation](doc/README.md)

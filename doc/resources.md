@@ -4,6 +4,7 @@
 
 - [ ] http://www.scala-lang.org/contribute/hacker-guide.html
 - [ ] http://lampwww.epfl.ch/~magarcia/ScalaCompilerCornerReloaded/
+- [ ] https://issues.scala-lang.org/browse/SI-9158?jql=project%20%3D%20SI%20AND%20resolution%20%3D%20Unresolved%20AND%20component%20%3D%20Lint%20ORDER%20BY%20priority%20DESC
 
 ## github projects
 

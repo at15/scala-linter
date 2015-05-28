@@ -15,4 +15,7 @@ scala -cp . Unused
 ### Use scala's built in dead code detection
 ````
 scala -Ywarn-dead-code unused.scala
+scala -Ywarn-unused unused.scala
 ````
+
+btw: scala's built in dead code detection is already very advanced ....

@@ -8,15 +8,20 @@ The deadline is 2015/06/08, so I guess there is little time for me now.
 
 ### Ultimate goal
 
-Dead code detection for scala
+1. Dead code detection for scala
+2. Apply linter to scalac to see if dead code is affecting scalac's speed
 
-Detect the following three types of deadcode
+NOTE:Xlint is already providing a lot of dead code detection.
+
+Detect the following three types of dead code
 
 1. code in unreachable and never executed
 2. dead code that has no external impact
 3. dead code that has negative external impact, ie: division by zero
 
 ## TODO
+
+R1 write own linter
 
 - [ ] T1 statement after return
 - [ ] T1 if branch never executed, never match etc.
@@ -27,3 +32,10 @@ Detect the following three types of deadcode
 - [ ] autofixer
 - [x] write sample deadcode
 - [x] init the sbt project for plugin
+
+R2 Use scala's Xlint
+
+- [ ] get `-Ywarn-dead-code`, `-Ywarn-unused` result
+- [ ] apply it to scalac itself
+- [ ] autofixer for dead code
+- [ ] test compile speed
