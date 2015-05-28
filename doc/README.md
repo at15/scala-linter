@@ -1,32 +1,24 @@
-# Doc for this scala-linter
+# Documentation
 
 ## Usage
 
 - Make sure you have sbt installed
 - run `sbt package` in project's root folder
 - get the dist jar in `target/scala-2.1.1/scala-linter_2.11-0.0.1.jar`
-
- TODO: how to run `scalac` without installing it globally.
-- use it in `scalac`
+- run `scalac` with the plugin
 ````
 scalac -Xplugin:scala-linter_2.11-0.0.1.jar unused.scala
-scala Unused // scala -classspath . Unused 
+scala -cp . Unused 
 ````
 TODO
 
 - use it in `sbt`
+- how to run `scalac` without installing it globally.
 
+## Other
 
-## Doc for scala beginners
-
-[How to use idea for sbt projects](idea.md)
-
-## Doc about compiler plugin
-
-TODO:
-
-- [ ] compile process
-- [ ] common terms
-- [ ] dead code detection method
-- [ ] type1(unreachable) dead code detection
-- [ ] unused variable detection
+- [Resources](resources.md) useful projects and links
+- [Compiler](compiler/README.md) basic knowledge about compiler and scala compiler
+- [Problems](problems/README.md) solved and pending problems
+- [How to use IDEA for sbt projects](idea.md)
+- [Scala dev environment setup](env-setup.md)

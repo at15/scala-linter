@@ -1,47 +1,15 @@
 # scala-linter
 
-Dead code detection for scala
+Experimental linter for scala dead code detection.
 
-Detect the following three types of deadcode
-
-1. code in unreachable and never executed
-2. dead code that has no external impact
-3. dead code that has negative external impact, ie: division by zero
-
-## TODO
-
-
-- [ ] T1 statement after return
-- [ ] T1 if branch never executed, never match etc.
-- [ ] T2 unused var
-- [ ] T2 var has no contribution to final result
-- [ ] T3 T2 which throw exception or cause IO
-- [ ] apply it to a small project
-- [ ] autofixer
-- [x] write sample deadcode
-- [x] init the sbt project for plugin
-
-## Ref sites
-
-http://lampwww.epfl.ch/~magarcia/ScalaCompilerCornerReloaded/
-https://github.com/ymasory/alacs/blob/master/dev/resources.md
+[Road map](doc/roadmap.md)
+[Useful resources](doc/resources.md)
+[Other Documentation](doc/README.md)
 
 ## Similar projects
-
-These projects also include similar projects in their readme
 
 - https://github.com/HairyFotr/linter
 - https://github.com/scala/scala-abide
 - https://github.com/scalastyle/scalastyle
 - https://github.com/puffnfresh/wartremover
 - https://github.com/sksamuel/scalac-scapegoat-plugin
-
-scala-abide core rules Unused local definitions, Variables that are never assigned
-linter Unused xx ?
-
-## Projects that may help
-
-- [x] https://github.com/jrudolph/scalac-plugin.g8  // a template for scalac plugin using sbt
-- [ ] https://github.com/harrah/browse
-- [ ] https://github.com/jrudolph/scala-enhanced-strings
-- [ ] https://github.com/jrudolph/sbt-dependency-graph

@@ -44,7 +44,8 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
 
 
   private object DivisionByZeroComponent extends PluginComponent {
-
+    // It's ok to add print
+    println("Ayi is a doubi!")
     import global._
 
     val global = DeadCodeDetectPlugin.this.global

@@ -1,0 +1,29 @@
+# Roadmap for scala-linter
+
+This is just an experimental project for a school course. (kc-3g)
+
+(All the other students are working in the professors lab, e.....)
+
+The deadline is 2015/06/08, so I guess there is little time for me now.
+
+### Ultimate goal
+
+Dead code detection for scala
+
+Detect the following three types of deadcode
+
+1. code in unreachable and never executed
+2. dead code that has no external impact
+3. dead code that has negative external impact, ie: division by zero
+
+## TODO
+
+- [ ] T1 statement after return
+- [ ] T1 if branch never executed, never match etc.
+- [ ] T2 unused var
+- [ ] T2 var has no contribution to final result
+- [ ] T3 T2 which throw exception or cause IO
+- [ ] apply it to a small project
+- [ ] autofixer
+- [x] write sample deadcode
+- [x] init the sbt project for plugin
