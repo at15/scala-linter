@@ -11,6 +11,7 @@
 - [ ] https://github.com/ymasory/alacs/blob/master/dev/resources.md
 - [ ] https://github.com/HairyFotr/linter
 - [ ] https://github.com/scala/scala-abide
+- [ ] https://github.com/lihaoyi/fastparse  // it can parse scala 
 - [x] https://github.com/jrudolph/scalac-plugin.g8  // a template for scalac plugin using sbt, this project is based on this template.
 
 ## blog and web-pages
@@ -20,7 +21,8 @@
 
 ## videos
 
-- [ ] http://www.scala-lang.org/old/node/598.html    code walk-through sessions by Martin Odersky about the Scala compiler internals
+- [ ] http://channel9.msdn.com/Events/Lang-NEXT/Lang-NEXT-2012/Reflection-and-Compilers
+- [x] http://www.scala-lang.org/old/node/598.html    code walk-through sessions by Martin Odersky about the Scala compiler internals (really poor quality)
 
 ### Projects that may help
 

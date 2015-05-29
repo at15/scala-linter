@@ -17,6 +17,6 @@ println("I know you were trouble when you writing code")
 import scala.reflect.runtime.universe._
 def tree = reify{ final class C { def x = 2 } }.tree
 // worksheet is printing nothing..., scala is also not printing...
-// only repl can print?
-show(tree)
-showRaw(tree)
+// only repl can print? ... dumb, show and showRaw return string and print nothing
+println(show(tree))
+println(showRaw(tree))

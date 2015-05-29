@@ -31,10 +31,15 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
 
     def newTransformer(unit: CompilationUnit) = new DeadCodeDetectTransformer(unit)
 
+
+
     class DeadCodeDetectTransformer(unit: CompilationUnit) extends Transformer {
 
       override def transform(tree: Tree): Tree = tree match {
-        case Literal(Constant(str: String)) => Literal(Constant("ICanHazYourStrngLiterls"))
+        case Literal(Constant(str: String)) => {
+          global.reporter.error(tree.pos,"always error!")
+          Literal(Constant("ICanHazYourStrngLiterls"))
+        }
 
         // don't forget this case, so that tree is actually traversed
         case _ => super.transform(tree)
