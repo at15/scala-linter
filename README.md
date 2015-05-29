@@ -15,3 +15,9 @@ Test if dead code is affecting scalac's speed.
 - https://github.com/scalastyle/scalastyle
 - https://github.com/puffnfresh/wartremover
 - https://github.com/sksamuel/scalac-scapegoat-plugin
+
+
+## Related projects
+
+- [A demo project that use this linter](https://github.com/at15/lint-me)
+- [A Forked scala for apply this linter on it](https://github.com/at15/scala)

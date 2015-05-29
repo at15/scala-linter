@@ -8,6 +8,8 @@ Because
 
 How to do that 
 
+NOTE: see http://www.scala-sbt.org/0.13/tutorial/Library-Dependencies.html, must specify the plguin version instead of using `%%`
+
 - add `addCompilerPlugin("org.dy.lint" % "scala-linter_2.11" % "0.0.1")` in `project/plugins.sbt`
 
 the modified version is in https://github.com/at15/scala. but you need to change the compiler plugin into another one because 

@@ -28,14 +28,17 @@ R1 write own linter
 - [ ] T2 unused var
 - [ ] T2 var has no contribution to final result
 - [ ] T3 T2 which throw exception or cause IO
-- [ ] apply it to a small project
+- [ ] apply it to a small  
 - [ ] autofixer
+- [x] apply compiler plugin to scala lang
 - [x] write sample deadcode
 - [x] init the sbt project for plugin
 
 R2 Use scala's Xlint
 
 - [ ] get `-Ywarn-dead-code`, `-Ywarn-unused` result, use `scalac -Xlint:help` to see all supported result
+- [ ] use Xlint on scala
+- [ ] log compiler warning for dead code and turn into structured data
 - [ ] apply it to scalac itself
 - [ ] autofixer for dead code
 - [ ] test compile speed
