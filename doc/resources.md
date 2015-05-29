@@ -24,6 +24,10 @@
 - [ ] http://channel9.msdn.com/Events/Lang-NEXT/Lang-NEXT-2012/Reflection-and-Compilers
 - [x] http://www.scala-lang.org/old/node/598.html    code walk-through sessions by Martin Odersky about the Scala compiler internals (really poor quality)
 
+## Papers
+
+- [ ] http://link.springer.com/chapter/10.1007/978-3-662-46663-6_2     A Refactoring Library for Scala Compiler Extensions  https://github.com/amanjpro/piuma
+
 ### Projects that may help
 
 They are not directly related, but have something to do with scala api I might need

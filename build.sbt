@@ -1,5 +1,7 @@
 name := "scala-linter"
 
+organization := "org.dy.lint"
+
 version := "0.0.1"
 
 scalaVersion := "2.11.6"

@@ -35,7 +35,7 @@ R1 write own linter
 
 R2 Use scala's Xlint
 
-- [ ] get `-Ywarn-dead-code`, `-Ywarn-unused` result
+- [ ] get `-Ywarn-dead-code`, `-Ywarn-unused` result, use `scalac -Xlint:help` to see all supported result
 - [ ] apply it to scalac itself
 - [ ] autofixer for dead code
 - [ ] test compile speed
