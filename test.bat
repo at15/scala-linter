@@ -5,5 +5,5 @@ copy /y target\scala-2.11\scala-linter_2.11-0.0.1.jar example\
 echo "Compile with the plugin "
 cd example
 scalac -Xplugin:scala-linter_2.11-0.0.1.jar unused.scala
+echo "Compile finished!"
 scala -cp . Unused
-cd ..
