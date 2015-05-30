@@ -18,11 +18,12 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
 
   val name = "DeadCodeDetect"
   val description = "Dead Code Detection for scala"
+//  val components = List[PluginComponent](DivisionByZeroComponent)
   val components = List[PluginComponent](DivisionByZeroComponent, ReplaceStringComponent)
 
 
   private object ReplaceStringComponent extends PluginComponent with Transform {
-
+    println("ReplaceStringComponent")
     import global._
 
     val global = DeadCodeDetectPlugin.this.global
@@ -37,8 +38,10 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
 
       override def transform(tree: Tree): Tree = tree match {
         case Literal(Constant(str: String)) => {
-          global.reporter.error(tree.pos,"always error!")
-          Literal(Constant("ICanHazYourStrngLiterls"))
+          println("oh la la I am a sting")
+          global.reporter.warning(tree.pos,"always error!")
+//          Literal(Constant("ICanHazYourStrngLiterls"))
+          Literal(Constant(str))
         }
 
         // don't forget this case, so that tree is actually traversed
@@ -50,7 +53,7 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
 
   private object DivisionByZeroComponent extends PluginComponent {
     // It's ok to add print
-    println("Ayi is a doubi!")
+    println("Division By Zero Component")
     import global._
 
     val global = DeadCodeDetectPlugin.this.global
@@ -64,6 +67,7 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
       override def apply(unit: CompilationUnit) {
         for (tree@Apply(Select(rcvr, nme.DIV), List(Literal(Constant(0)))) <- unit.body;
              if rcvr.tpe <:< definitions.IntClass.tpe) {
+          println("oops division by zero")
           global.reporter.warning(tree.pos, "definitely division by zero")
         }
 
