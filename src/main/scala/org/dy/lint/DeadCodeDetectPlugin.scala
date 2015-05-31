@@ -18,7 +18,6 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
 
   val name = "DeadCodeDetect"
   val description = "Dead Code Detection for scala"
-//  val components = List[PluginComponent](DivisionByZeroComponent)
   val components = List[PluginComponent](DivisionByZeroComponent, ReplaceStringComponent)
 
 
