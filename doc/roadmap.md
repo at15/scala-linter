@@ -36,9 +36,11 @@ R1 write own linter
 
 R2 Use scala's Xlint
 
-- [ ] get `-Ywarn-dead-code`, `-Ywarn-unused` result, use `scalac -Xlint:help` to see all supported result
-- [ ] use Xlint on scala
-- [ ] log compiler warning for dead code and turn into structured data
-- [ ] apply it to scalac itself
+- [x] get `-Ywarn-dead-code`, `-Ywarn-unused` result, use `scalac -Xlint:help` to see all supported result
+- [x] ~~use Xlint on scala~~
+- [x] log compiler warning for dead code and turn into structured data
+- [x] apply it to scalac itself
 - [ ] autofixer for dead code
 - [ ] test compile speed
+
+see projects https://github.com/at15/scala , https://github.com/at15/scalac-log-formatter
