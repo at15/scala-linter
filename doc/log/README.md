@@ -5,6 +5,7 @@
 
 ## TODO
 
-- log for use compiler plugin on scala itself
-- log for the init string replacement plugin and the tricky `phaseName` problem
-- ~~log for init project, use g8 template~~
+- [ ] read http://docs.scala-lang.org/overviews/reflection/annotations-names-scopes.html
+- [x] log for use compiler plugin on scala itself
+- [x] log for the init string replacement plugin and the tricky `phaseName` problem
+- [x] log for init project, use g8 template

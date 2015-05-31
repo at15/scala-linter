@@ -1,7 +1,11 @@
 # Compiler plugin
 
-TODO:
+## Reading list
 
+- [ ] Tree,traverse http://docs.scala-lang.org/overviews/reflection/symbols-trees-types.html
+- [ ] DefDef,PreDef,Constant etc. http://docs.scala-lang.org/overviews/reflection/annotations-names-scopes.html
+
+TODO:
 - [ ] compile process
 - [ ] common terms
 - [ ] dead code detection method
