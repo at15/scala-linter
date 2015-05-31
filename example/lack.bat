@@ -1,0 +1,1 @@
+scalac -Ywarn-dead-code -Ywarn-unused lack.scala
