@@ -16,3 +16,8 @@ http://www.scala-lang.org/api/2.11.6/scala-reflect/#scala.reflect.api.Universe@T
 > Additional functionality is exposed in member scopes that are returned by members and declarations
 > defined in scala.reflect.api.Types#TypeApi. scala.reflect.api.Scopes#MemberScope supports the sorted method,
 > which sorts members in declaration order.
+
+### Constants
+
+> Certain expressions that the Scala specification calls constant expressions can be evaluated by the Scala compiler at compile time
+> Constant expressions are used to represent literals in abstract syntax trees (see scala.reflect.api.Trees#Literal)

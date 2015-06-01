@@ -30,4 +30,9 @@ unused
 2. unused param (scala-abide and many other linter already support it)
 3. constant is returned for function. (but this is really hard ... though)
 
+useless operations
+
+1. division by 1.
+2. calculation that has no impact on result.
+
 I guess this is enough now.
