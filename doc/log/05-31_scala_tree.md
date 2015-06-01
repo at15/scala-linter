@@ -7,7 +7,7 @@ tree seems to be more useful for dead code detection
 - [x] what is `::` used in the example pattern matching
 - [ ] what is `Select`
 - [ ] what is `Indent`
-- [ ] what is `@` used in traverser
+- [x] what is `@` used in traverser
 
 #### ::  (collection operation)
 
