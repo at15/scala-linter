@@ -70,10 +70,10 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
           global.reporter.warning(tree.pos, "definitely division by zero")
         }
 
-//        for (tree@Apply(Select(rcvr, nme.DIV), List(Literal(Constant(1)))) <- unit.body;
-//             if rcvr.tpe <:< definitions.IntClass.tpe) {
-//          global.reporter.warning(tree.pos, "definitely division by one")
-//        }
+        for (tree@Apply(Select(rcvr, nme.DIV), List(Literal(Constant(1)))) <- unit.body;
+             if rcvr.tpe <:< definitions.IntClass.tpe) {
+          global.reporter.warning(tree.pos, "definitely division by one")
+        }
       }
     }
 

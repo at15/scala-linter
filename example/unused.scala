@@ -8,7 +8,8 @@ object Unused {
   }
 
   def div() = {
-    val a = 2 / 1
+    val a = 2 / 1  // this is not div by one, because it became val a = 2
+    val c = a / 1
     2 / 0
   }
 
