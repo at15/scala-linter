@@ -23,6 +23,7 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
 
   private object ReplaceStringComponent extends PluginComponent with Transform {
     println("ReplaceStringComponent")
+
     import global._
 
     val global = DeadCodeDetectPlugin.this.global
@@ -32,14 +33,13 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
     def newTransformer(unit: CompilationUnit) = new DeadCodeDetectTransformer(unit)
 
 
-
     class DeadCodeDetectTransformer(unit: CompilationUnit) extends Transformer {
 
       override def transform(tree: Tree): Tree = tree match {
         case Literal(Constant(str: String)) => {
           println("oh la la I am a sting")
-          global.reporter.warning(tree.pos,"always error!")
-//          Literal(Constant("ICanHazYourStrngLiterls"))
+          global.reporter.warning(tree.pos, "always error!")
+          //          Literal(Constant("ICanHazYourStrngLiterls"))
           Literal(Constant(str))
         }
 
@@ -47,12 +47,14 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
         case _ => super.transform(tree)
       }
     }
+
   }
 
 
   private object DivisionByZeroComponent extends PluginComponent {
     // It's ok to add print
     println("Division By Zero Component")
+
     import global._
 
     val global = DeadCodeDetectPlugin.this.global
@@ -62,12 +64,12 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
     def newPhase(prev: Phase) = new DivisionByZeroPhase(prev)
 
     class DivisionByZeroPhase(prev: Phase) extends StdPhase(prev) {
-      // TODO:what is unit?
+      // TODO:what is unit? .. it is CompilationUnit. so what is ComilationUnit
       override def apply(unit: CompilationUnit) {
-        for (tree@Apply(Select(rcvr, nme.DIV), List(Literal(Constant(0)))) <- unit.body;
+        for (t @ Apply(Select(rcvr, nme.DIV), List(Literal(Constant(0)))) <- unit.body;
              if rcvr.tpe <:< definitions.IntClass.tpe) {
           println("oops division by zero")
-          global.reporter.warning(tree.pos, "definitely division by zero")
+          global.reporter.warning(t.pos, "definitely division by zero")
         }
 
         for (tree@Apply(Select(rcvr, nme.DIV), List(Literal(Constant(1)))) <- unit.body;
