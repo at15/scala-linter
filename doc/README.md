@@ -24,6 +24,7 @@ NOTE:Use `addCompilerPlugin` is not working, I don't know why though.
 
 ## Other
 
+- [Rules](rules.md) Rules supported by this linter
 - [Resources](resources.md) useful projects and links
 - [Review](review/README.md) review about above resources
 - [Compiler](compiler/README.md) basic knowledge about compiler and scala compiler
