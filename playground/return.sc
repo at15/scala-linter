@@ -21,13 +21,17 @@ object traverser extends Traverser {
 //    // TODO: not enough pattern for class ModifiersExtractor offering
 //    case DefDef(Modifiers, TermName("s"), List(), List(List()), TypeTree(), Literal(Constant(3))) =>
 //      println("got you")
-    case List() => {
-      println("list!")
+    case b@DefDef(_,_,_,_,_,Literal(Constant(a))) =>
+      println("return constant!" + a)
+      println("This is b\r\n" + showRaw(b) )
+    case Literal(Constant(a)) => {
+      println("I got " + a)
     }
     case _ => {
-      println("oh la la")
-      show(tree)
-      showRaw(tree)
+//      println("oh la la")
+//      println(show(tree))
+      println("\r\n")
+      println(showRaw(tree))
       super.traverse(tree)
     }
   }
