@@ -17,7 +17,7 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
 
   val name = "DeadCodeDetect"
   val description = "Dead Code Detection for scala"
-  val components = List[PluginComponent](NumericCheckComponent,ReturnCheckComponent)
+  val components = List[PluginComponent](NumericCheckComponent, ReturnCheckComponent)
 
   private object NumericCheckComponent extends PluginComponent {
     println("NumericCheckComponent loaded!")
@@ -55,59 +55,35 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
 
   private object ReturnCheckComponent extends PluginComponent {
     println("ReturnCheckComponent loaded!")
-    import  global._
+
+    import global._
+
     val global = DeadCodeDetectPlugin.this.global
     val phaseName = "return check"
     override val description = "methods that return constant might be dead code"
     // TODO: whcih phase should it runsAfter, I am not sure ....
     override val runsAfter = List("parser")
+
     def newPhase(prev: Phase) = new ReturnCheckPhase(prev)
-    class ReturnCheckPhase(prev:Phase) extends StdPhase(prev){
+
+    class ReturnCheckPhase(prev: Phase) extends StdPhase(prev) {
       override def apply(unit: CompilationUnit): Unit = {
-          ReturnConstantCheckTraverse.traverse(unit.body)
+        ReturnConstantCheckTraverse.traverse(unit.body)
       }
 
-      private object ReturnConstantCheckTraverse extends Traverser{
+      private object ReturnConstantCheckTraverse extends Traverser {
         override def traverse(tree: Tree): Unit = tree match {
           // TODO:remove b and other debug code
-          case DefDef(_,_,_,_,_,Literal(Constant(a))) =>
-            global.reporter.warning(tree.pos,"[ReturnCheck] constant " + a + " is returned")
-//            println("return constant!" + a)
-//            println("This is b\r\n" + showRaw(b) )
-            super.traverse(tree) // TODO: do we need this here?
+          case DefDef(_, _, _, _, _, Literal(Constant(a))) =>
+            global.reporter.warning(tree.pos, "[ReturnCheck] constant " + a + " is returned")
+            super.traverse(tree) // TODO: even add the traverse, we still can't detect a nested one.
           case _ => super.traverse(tree)
         }
       }
+
     }
 
   }
 
-  private object ReplaceStringComponent extends PluginComponent with Transform {
-    println("ReplaceStringComponent")
-
-    import global._
-
-    val global = DeadCodeDetectPlugin.this.global
-    val phaseName = DeadCodeDetectPlugin.this.name
-    override val runsAfter = List("parser")
-
-    def newTransformer(unit: CompilationUnit) = new DeadCodeDetectTransformer(unit)
-
-    class DeadCodeDetectTransformer(unit: CompilationUnit) extends Transformer {
-
-      override def transform(tree: Tree): Tree = tree match {
-        case Literal(Constant(str: String)) => {
-          println("oh la la I am a sting")
-          global.reporter.warning(tree.pos, "always error!")
-          //          Literal(Constant("ICanHazYourStrngLiterls"))
-          Literal(Constant(str))
-        }
-
-        // don't forget this case, so that tree is actually traversed
-        case _ => super.transform(tree)
-      }
-    }
-
-  }
 
 }

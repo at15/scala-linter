@@ -11,6 +11,14 @@ object ReturnConstant {
     "I am a string!"
   }
 
+  def nestedReturnConstant() = {
+    // TODO: the nested one is not discovered
+    def IamTheNested() = {
+      1
+    }
+    2
+  }
+
   def notDeadCode( name:String):Int = {
     if(name == "jack"){
       return 1
