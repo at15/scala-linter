@@ -4,6 +4,10 @@ echo "Copy the file "
 copy /y target\scala-2.11\scala-linter_2.11-0.0.1.jar example\
 echo "Compile with the plugin "
 cd example
+
+echo "Compile if with linter "
+scalac -Xplugin:scala-linter_2.11-0.0.1.jar if.scala
+
 echo "Compile return constant with linter "
 scalac -Xplugin:scala-linter_2.11-0.0.1.jar returnConstant.scala
 

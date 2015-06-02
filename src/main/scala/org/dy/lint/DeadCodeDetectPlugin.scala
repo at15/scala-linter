@@ -17,7 +17,7 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
 
   val name = "DeadCodeDetect"
   val description = "Dead Code Detection for scala"
-  val components = List[PluginComponent](NumericCheckComponent, ReturnCheckComponent)
+  val components = List[PluginComponent](NumericCheckComponent, ReturnCheckComponent, IfCheckComponent)
 
   private object NumericCheckComponent extends PluginComponent {
     println("NumericCheckComponent loaded!")
@@ -85,5 +85,36 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
 
   }
 
+  private object IfCheckComponent extends PluginComponent {
+    println("IfCheckComponent loaded!")
+
+    import global._
+
+    val global = DeadCodeDetectPlugin.this.global
+    val phaseName = "if check"
+    override val description = "if branches that will never execute"
+    // TODO: whcih phase should it runsAfter, I am not sure ....
+    override val runsAfter = List("parser")
+
+    def newPhase(prev: Phase) = new IfCheckPhase(prev)
+
+    class IfCheckPhase(prev: Phase) extends StdPhase(prev) {
+      override def apply(unit: CompilationUnit): Unit = {
+        IfCheckTraverse.traverse(unit.body)
+      }
+
+      private object IfCheckTraverse extends Traverser {
+        override def traverse(tree: Tree): Unit = tree match {
+          // TODO:other check
+          case If(cond, thenp, elsep) =>
+            if (cond.toString() == "false")
+            global.reporter.warning(tree.pos, "[IfCheck] condition is always false")
+            super.traverse(tree) // TODO: detect nested one?  yes , but tree is bfs right ?... e... confused
+          case _ => super.traverse(tree)
+        }
+      }
+    }
+
+  }
 
 }
