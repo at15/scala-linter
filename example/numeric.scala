@@ -17,4 +17,9 @@ object Hi{
     val x = 2
     x % 1
   }
+
+  def modByZero = {
+    val x = 2
+    x % 0
+  }
 }

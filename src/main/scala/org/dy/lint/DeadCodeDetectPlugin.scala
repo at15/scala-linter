@@ -40,7 +40,9 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
              if (receiver.tpe <:< definitions.IntClass.tpe) && (operator == nme.DIV || operator == nme.MOD)) {
           denominator match {
             // type 3, dead code with side effects
-            case 0 if operator == nme.DIV => global.reporter.warning(tree.pos, "[NumericCheck] Div by zero")
+            case 0  => if (operator == nme.DIV)
+              global.reporter.warning(tree.pos, "[NumericCheck] Div by zero")
+              else global.reporter.warning(tree.pos,"[NumericCheck] Mod by zero")
             // type 2, code that don't contribute to final result
             case 1 => if (operator == nme.DIV)
               global.reporter.warning(tree.pos, "[NumericCheck] Div by one")
