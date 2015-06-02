@@ -3,6 +3,8 @@
  */
 
 object Unused {
+  private val a = "123"
+
   def main(arg: Array[String]) = {
     println("This is a string")
   }

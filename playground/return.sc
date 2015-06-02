@@ -4,6 +4,10 @@ import scala.reflect.runtime.universe._
 
 val expr = reify {
   def s():Int = {
+    if(true){
+      return 2
+      val b = 2
+    }
     val a = 2
     3
   }
