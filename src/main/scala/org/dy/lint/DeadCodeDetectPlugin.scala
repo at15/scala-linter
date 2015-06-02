@@ -63,7 +63,6 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
 
       def newTransformer(unit: CompilationUnit) = new DeadCodeDetectTransformer(unit)
 
-
       class DeadCodeDetectTransformer(unit: CompilationUnit) extends Transformer {
 
         override def transform(tree: Tree): Tree = tree match {
