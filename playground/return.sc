@@ -4,10 +4,10 @@ import scala.reflect.runtime.universe._
 
 val expr = reify {
   def s() = {
+    val x = 1
     3
   }
 }
-
 show(expr.tree)
 showRaw(expr.tree)
 expr.tree.pos
