@@ -17,7 +17,7 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
 
   val name = "DeadCodeDetect"
   val description = "Dead Code Detection for scala"
-  val components = List[PluginComponent](NumericCheckComponent, ReturnCheckComponent, IfCheckComponent)
+  val components = List[PluginComponent](NumericCheckComponent, ReturnCheckComponent, IfCheckComponent, UnusedParamCheckComponent)
 
   private object NumericCheckComponent extends PluginComponent {
     println("NumericCheckComponent loaded!")
@@ -27,6 +27,7 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
     val global = DeadCodeDetectPlugin.this.global
     val phaseName = "numeric check"
     override val description = "numeric operation that cause dead code"
+    // TODO:which phase?
     override val runsAfter = List("refchecks")
 
     def newPhase(prev: Phase) = new NumericCheckPhase(prev)
@@ -61,7 +62,7 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
     val global = DeadCodeDetectPlugin.this.global
     val phaseName = "return check"
     override val description = "methods that return constant might be dead code"
-    // TODO: whcih phase should it runsAfter, I am not sure ....
+    // TODO: which phase should it runsAfter, I am not sure ....
     override val runsAfter = List("parser")
 
     def newPhase(prev: Phase) = new ReturnCheckPhase(prev)
@@ -93,7 +94,7 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
     val global = DeadCodeDetectPlugin.this.global
     val phaseName = "if check"
     override val description = "if branches that will never execute"
-    // TODO: whcih phase should it runsAfter, I am not sure ....
+    // TODO: which phase should it runsAfter, I am not sure ....
     override val runsAfter = List("parser")
 
     def newPhase(prev: Phase) = new IfCheckPhase(prev)
@@ -117,4 +118,19 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
 
   }
 
+  private object UnusedParamCheckComponent extends PluginComponent {
+    println("UnusedParamCheckComponent loaded!")
+    import global._
+    val gloabal = DeadCodeDetectPlugin.this.global
+    val phaseName = "unused param check"
+    override val description = "unuused param"
+    // TODO:which
+    override val runsAfter = List("refChecks")
+
+    def newPhase(prev:Phase) = new UnusedParamCheckPhase(prev)
+
+    class UnusedParamCheckPhase(prev:Phase) extends StdPhase(prev){
+      // TODO: real code here
+    }
+  }
 }

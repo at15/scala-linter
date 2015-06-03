@@ -5,6 +5,8 @@
 
 ## TODO
 
+- [ ] log for #7 if check
+- [ ] log for #5 numeric operation
 - [ ] log for #4 return constant.
 - [x] read http://docs.scala-lang.org/overviews/reflection/annotations-names-scopes.html
 - [x] log for use compiler plugin on scala itself
