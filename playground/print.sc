@@ -15,7 +15,12 @@ println("I know you were trouble when you writing code")
 // http://www.scala-lang.org/files/archive/nightly/docs/library/index.html#scala.reflect.api.Printers
 
 import scala.reflect.runtime.universe._
-def tree = reify{ final class C { def x = 2 } }.tree
+
+def tree = reify {
+  final class C {
+    def x = 2
+  }
+}.tree
 // worksheet is printing nothing..., scala is also not printing...
 // only repl can print? ... dumb, show and showRaw return string and print nothing
 println(show(tree))

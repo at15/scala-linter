@@ -5,8 +5,8 @@ tree.toString()
 showRaw(tree)
 
 // TODO: what is ::
-val (fun,arg) = tree match {
-  case Apply(fn, a :: nil) => (fn,a)
+val (fun, arg) = tree match {
+  case Apply(fn, a :: nil) => (fn, a)
 }
 
 // This pattern matching is more clear
@@ -16,7 +16,7 @@ arg2
 
 
 val treeComplex = Apply(Select(Apply(Select(Ident(newTermName("x")), newTermName("$plus")), List(Literal(Constant(2)))), newTermName("$plus")), List(Literal(Constant(3))))
-val Apply(fun3,arg3 :: Nil) = treeComplex
+val Apply(fun3, arg3 :: Nil) = treeComplex
 fun3
 arg3
 

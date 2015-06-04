@@ -109,28 +109,36 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
           // TODO:other check
           case If(cond, thenp, elsep) =>
             if (cond.toString() == "false")
-            global.reporter.warning(tree.pos, "[IfCheck] condition is always false")
+              global.reporter.warning(tree.pos, "[IfCheck] condition is always false")
             super.traverse(tree) // TODO: detect nested one?  yes , but tree is bfs right ?... e... confused
           case _ => super.traverse(tree)
         }
       }
+
     }
 
   }
 
   private object UnusedParamCheckComponent extends PluginComponent {
     println("UnusedParamCheckComponent loaded!")
+
     import global._
+
     val gloabal = DeadCodeDetectPlugin.this.global
     val phaseName = "unused param check"
     override val description = "unuused param"
     // TODO:which
     override val runsAfter = List("refChecks")
 
-    def newPhase(prev:Phase) = new UnusedParamCheckPhase(prev)
+    def newPhase(prev: Phase) = new UnusedParamCheckPhase(prev)
 
-    class UnusedParamCheckPhase(prev:Phase) extends StdPhase(prev){
+    class UnusedParamCheckPhase(prev: Phase) extends StdPhase(prev) {
       // TODO: real code here
+      // TODO:what is Select and Ident
+      Block(List(DefDef(Modifiers(), TermName("bark"), List(), List(List(ValDef(Modifiers(PARAM), TermName("name"), Select(Ident(scala.Predef), TypeName("String")), EmptyTree))), Ident(scala.Unit), Apply(Select(Ident(scala.Predef), TermName("println")), List(Literal(Constant("a")))))), Literal(Constant(())))
+
     }
+
   }
+
 }

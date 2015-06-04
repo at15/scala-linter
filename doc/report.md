@@ -1,5 +1,7 @@
 # The report for kc-3g
 
+TODO:change to latex
+
 - Use scalac built in lint and parse log
 - Write custom linter
 

@@ -14,20 +14,22 @@
 //  case _ => "something else"
 //}
 
-val (x,y) = (1,2)
+val (x, y) = (1, 2)
 // use pattern match in for
+
 import collection.JavaConversions.propertiesAsScalaMap
-for((k,v) <- System.getProperties){
+
+for ((k, v) <- System.getProperties) {
   println(k + " -> " + v)
 }
 
 // use match
-for((k1,"") <- System.getProperties){
+for ((k1, "") <- System.getProperties) {
   println(k1)
 }
 
 // use gard with match
-for((k,v) <- System.getProperties if v != "SUN_STANDARD" && v != "CN"){
+for ((k, v) <- System.getProperties if v != "SUN_STANDARD" && v != "CN") {
   println(v)
 }
 
