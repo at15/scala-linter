@@ -25,6 +25,47 @@ val (f :: Nil) = la
 ````
 #### Select
 
+````
+ /** An extractor class to create and pattern match with syntax `Select(qual, name)`.
+   *  This AST node corresponds to the following Scala code:
+   *
+   *    qualifier.selector
+   *
+   *  Should only be used with `qualifier` nodes which are terms, i.e. which have `isTerm` returning `true`.
+   *  Otherwise `SelectFromTypeTree` should be used instead.
+   *
+   *    foo.Bar // represented as Select(Ident(<foo>), <Bar>)
+   *    Foo#Bar // represented as SelectFromTypeTree(Ident(<Foo>), <Bar>)
+   *  @group Extractors
+   */
+  abstract class SelectExtractor {
+    def apply(qualifier: Tree, name: Name): Select
+    def unapply(select: Select): Option[(Tree, Name)]
+  }
+````
+
+#### Ident 
+
+`Apply(Select(Ident(TermName("x")), TermName("$plus")), List(Literal(Constant(2))))`
+`x.$plus(2)`
+
+identical `=` ? no ... seems
+
+````
+ /** An extractor class to create and pattern match with syntax `Ident(qual, name)`.
+   *  This AST node corresponds to the following Scala code:
+   *
+   *    name
+   *
+   *  Type checker converts idents that refer to enclosing fields or methods to selects.
+   *  For example, name ==> this.name
+   *  @group Extractors
+   */
+  abstract class IdentExtractor {
+    def apply(name: Name): Ident
+    def unapply(ident: Ident): Option[Name]
+  }
+````  
 
 #### @ 
 

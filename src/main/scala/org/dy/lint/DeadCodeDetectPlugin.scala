@@ -17,7 +17,8 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
 
   val name = "DeadCodeDetect"
   val description = "Dead Code Detection for scala"
-  val components = List[PluginComponent](NumericCheckComponent, ReturnCheckComponent, IfCheckComponent, UnusedParamCheckComponent)
+  //  val components = List[PluginComponent](NumericCheckComponent, ReturnCheckComponent, IfCheckComponent, UnusedParamCheckComponent)
+  val components = List[PluginComponent](NumericCheckComponent, ReturnCheckComponent, IfCheckComponent)
 
   private object NumericCheckComponent extends PluginComponent {
     println("NumericCheckComponent loaded!")
@@ -28,7 +29,8 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
     val phaseName = "numeric check"
     override val description = "numeric operation that cause dead code"
     // TODO:which phase?
-    override val runsAfter = List("refchecks")
+    //    override val runsAfter = List("refchecks")
+    override val runsAfter = List("parser") // TODO:this is also ok
 
     def newPhase(prev: Phase) = new NumericCheckPhase(prev)
 
@@ -124,7 +126,7 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
 
     import global._
 
-    val gloabal = DeadCodeDetectPlugin.this.global
+    val global = DeadCodeDetectPlugin.this.global
     val phaseName = "unused param check"
     override val description = "unuused param"
     // TODO:which
@@ -135,8 +137,10 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
     class UnusedParamCheckPhase(prev: Phase) extends StdPhase(prev) {
       // TODO: real code here
       // TODO:what is Select and Ident
-      Block(List(DefDef(Modifiers(), TermName("bark"), List(), List(List(ValDef(Modifiers(PARAM), TermName("name"), Select(Ident(scala.Predef), TypeName("String")), EmptyTree))), Ident(scala.Unit), Apply(Select(Ident(scala.Predef), TermName("println")), List(Literal(Constant("a")))))), Literal(Constant(())))
+      //      Block(List(DefDef(Modifiers(), TermName("bark"), List(), List(List(ValDef(Modifiers(PARAM), TermName("name"), Select(Ident(scala.Predef), TypeName("String")), EmptyTree))), Ident(scala.Unit), Apply(Select(Ident(scala.Predef), TermName("println")), List(Literal(Constant("a")))))), Literal(Constant(())))
+      override def apply(unit: CompilationUnit): Unit = {
 
+      }
     }
 
   }
