@@ -141,6 +141,17 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
       override def apply(unit: CompilationUnit): Unit = {
 
       }
+
+      // Block(List(DefDef(Modifiers(), TermName("bark"), List(), List(List(ValDef(Modifiers(PARAM), TermName("name"), Select(Ident(scala.Predef), TypeName("String")), EmptyTree), ValDef(Modifiers(PARAM), TermName("date"), Select(Ident(scala.Predef), TypeName("String")), EmptyTree))), Ident(scala.Unit), Apply(Select(Ident(scala.Predef), TermName("println")), List(Literal(Constant("a")))))), Literal(Constant(())))res1: Unit = ()
+      private object UnusedParamCheckTraverse extends Traverser{
+        override  def traverse(tree:Tree) :Unit = tree match {
+            // TODO:ignore others
+          case d @ DefDef(mods, _, _, valDefs, _, rhs) => {
+            // get all params, it's a list of ValDef
+          }
+          case _ => super.traverse(tree)
+        }
+      }
     }
 
   }
