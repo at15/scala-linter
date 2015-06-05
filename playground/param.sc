@@ -9,31 +9,50 @@ val expr = reify {
 }
 print(show(expr.tree))
 print(showRaw(expr.tree))
+// use gloabl var ?
+object paramNameTraver extends Traverser {
+  override def traverse(tree:Tree) = tree match {
+    case Ident(TermName(name)) => {
+      println("I got " + name)
+    }
+    case _ => super.traverse(tree)
+  }
+}
+def paramUsedInBody(paramName: String, tree: Tree) = {
+  println("check if " + paramName + " is used!")
+  // TODO:need traverse?
+//  tree match {
+//    //    case Ident(TermName(name)) if name == paramName => {
+//    case Ident(TermName(name)) => {
+//      println("I got " + name)
+//    }
+//    case _ => // just for avoid cache
+//  }
+  paramNameTraver.traverse(tree)
+
+  println(showRaw(tree))
+}
+
 object tt extends Traverser {
   override def traverse(tree: Tree): Unit = tree match {
-    case d @ DefDef(mods, _, _, valDefs, _, body) => {
+    case d@DefDef(mods, _, _, valDefs, _, body) => {
       val paramNames = ArrayBuffer[String]()
-      println("This is d!")
-      println(show(d))
-      println("These are valDefs!")
-      println(show(valDefs))
+      //      println("This is d!")
+      //      println(show(d))
+      //      println("These are valDefs!")
+      //      println(show(valDefs))
       // get the name from it.
-//      println(valDefs.flatMap().map(_.name.toString))
-      // ValDef(Modifiers(PARAM), TermName("name"), Select(Ident(scala.Predef), TypeName("String")
-      for(valDef <- valDefs){
-        println(show(valDef))
-        for( v <- valDef){
-          println(show(v))
+      for (valDef <- valDefs) {
+        //        println(show(valDef))
+        for (v <- valDef) {
+          //          println(show(v))
           paramNames.append(v.name.toString)
         }
       }
 
-//      val valDef = valDefs.take(1)
-//      for( v <- valDef){
-//        println(show(v))
-//      }
-      println("These are param names!")
-      println(paramNames)
+      for (paramName <- paramNames) {
+        paramUsedInBody(paramName, tree)
+      }
     }
     case _ => super.traverse(tree)
   }
