@@ -1,7 +1,8 @@
 import scala.reflect.runtime.universe._
 import scala.collection.mutable.ArrayBuffer
 val expr = reify {
-  def bark(name: String, date: String = "213"): Unit = {
+//  def bark(name: String, date: String = "213"): Unit = {
+  def bark(name: String, date: String): Unit = {
     val z = 2
     val doubi = name + "is a doubi"
     println(date)
@@ -50,6 +51,7 @@ object tt extends Traverser {
         }
       }
 
+      // TODO: only need to traverse the tree once.
       for (paramName <- paramNames) {
         paramUsedInBody(paramName, tree)
       }
