@@ -2,7 +2,6 @@ package org.dy.lint
 
 import scala.tools.nsc
 import nsc.Global
-import nsc.Phase
 import nsc.plugins.Plugin
 import nsc.plugins.PluginComponent
 
@@ -20,8 +19,8 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
   val components = List[PluginComponent](
     NumericCheckComponent,
     ReturnCheckComponent,
-    IfCheckComponent
-//    UnusedParamCheckComponent
+    IfCheckComponent,
+    UnusedParamCheckComponent
   )
 
   private object NumericCheckComponent extends NumericCheck(global)

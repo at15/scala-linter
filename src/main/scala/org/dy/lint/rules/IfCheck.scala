@@ -1,13 +1,9 @@
 package org.dy.lint.rules
 
-
 import scala.tools.nsc._
 import scala.tools.nsc.plugins.PluginComponent
 
-/**
- * Created by Pillar on 2015/6/5.
- */
-class IfCheck(val global: Global) extends PluginComponent{
+class IfCheck(val global: Global) extends PluginComponent {
   println("IfCheckComponent loaded!")
 
   import global._
@@ -36,4 +32,5 @@ class IfCheck(val global: Global) extends PluginComponent{
     }
 
   }
+
 }

@@ -1,12 +1,8 @@
 package org.dy.lint.rules
 
-
 import scala.tools.nsc._
 import scala.tools.nsc.plugins.PluginComponent
 
-/**
- * Created by Pillar on 2015/6/5.
- */
 class NumericCheck(val global: Global) extends PluginComponent {
   println("NumericCheckComponent loaded!")
 
