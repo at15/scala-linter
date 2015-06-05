@@ -49,7 +49,7 @@ val (f :: Nil) = la
 `Apply(Select(Ident(TermName("x")), TermName("$plus")), List(Literal(Constant(2))))`
 `x.$plus(2)`
 
-identical `=` ? no ... seems
+identical `=` ? no ... seems Identifier?
 
 ````
  /** An extractor class to create and pattern match with syntax `Ident(qual, name)`.
