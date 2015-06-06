@@ -54,6 +54,21 @@ class UnusedParamCheck(val global: Global) extends PluginComponent {
       case DefDef(mods, _, _, _, _, _) if mods.isOverride ||
         mods.hasFlag(Flags.OVERRIDE) ||
         (tree.symbol != null && (tree.symbol.isAnyOverride || tree.symbol.isOverridingSymbol)) =>
+//      case v @ ValDef(mods, _, _, valDefs, _, rhs) => {
+////        println(mods)
+////        println(mods.isDeferred)
+////        println(showRaw(mods))
+//        show(valDefs)
+//        // get all params, it's a list of ValDef
+//        paramNames.clear()
+////        for (valDef <- valDefs) {
+////          for (parameter <- valDef) {
+////            paramNames.add(parameter.name.toString)
+////          }
+////        }
+////        MethodBodyTraverse.traverse(tree)
+////        if (!paramNames.isEmpty) for (paramName <- paramNames) global.reporter.warning(tree.pos, "[Unused param] " + paramName)
+//      }
       case d @ DefDef(mods, _, _, valDefs, _, rhs) => {
         println(mods)
         println(mods.isDeferred)

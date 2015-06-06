@@ -9,3 +9,10 @@ val expr = reify {
 }
 println(show(expr.tree))
 println(showRaw(expr.tree))
+class Mie{
+  val say = (name:String) => {
+    println("a")
+  }
+}
+val c = new Mie
+c.say("b")

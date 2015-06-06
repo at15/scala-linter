@@ -9,6 +9,9 @@ abstract class UnusedParameter{
 
   def iamabstract(name:String)
 
+  val valMethod = (name:String) => {
+    println("aaa")
+  }
 //  def iamabstract2(name:String)
 }
 
