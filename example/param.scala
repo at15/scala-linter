@@ -8,10 +8,14 @@ abstract class UnusedParameter{
   }
 
   def iamabstract(name:String)
+
+//  def iamabstract2(name:String)
 }
 
 class UnusedParameter2 extends UnusedParameter{
   def iamabstract(name:String) = {
     println("I just don't call the name haha")
   }
+
+//  def iamabstract2(name:String) = "pia"
 }

@@ -1,5 +1,7 @@
 package org.dy.lint.rules
 
+import scala.reflect.internal.Flags
+//import scala.reflect.internal.Definitions
 import scala.tools.nsc._
 import scala.tools.nsc.plugins.PluginComponent
 
@@ -13,7 +15,8 @@ class UnusedParamCheck(val global: Global) extends PluginComponent {
   val phaseName = "unused param check"
   override val description = "unuused param"
   // TODO:which phase should it runAfter...
-  override val runsAfter = List("typer")
+//  override val runsAfter = List("typer")
+  override val runsAfter = List("refchecks")
 
   def newPhase(prev: Phase) = new UnusedParamCheckPhase(prev)
 
@@ -35,8 +38,26 @@ class UnusedParamCheck(val global: Global) extends PluginComponent {
     override def traverse(tree: Tree): Unit = tree match {
       // TODO:ignore others
       // TODO:abstract is not working.
-      case DefDef(mods, _, _, _, _, _) if mods.hasFlag(Flag.ABSTRACT) => // ignore abstract methods
-      case DefDef(mods, _, _, valDefs, _, rhs) => {
+      // TODO:scape goat is using
+      // https://github.com/at15/scalac-scapegoat-plugin/issues/1
+//      case DefDef(mods, _, _, _, _, _) if mods.hasFlag(Flag.DEFERRED) => // ignore abstract methods
+      // ignore traits, quite often you define a method in a trait with default impl that does nothing
+//      case ClassDef(_, _, _, _) if tree.symbol.isTrait                                  =>
+      // ignore abstract methods obv.
+//      case DefDef(mods, _, _, _, _, _) if mods.hasFlag(Flag.ABSTRACT)                   =>
+      case d @ DefDef(_, _, _, _, _, _) if d.symbol != null && d.symbol.isAbstract      =>
+      // ignore constructors, those params become fields
+      case DefDef(_, nme.CONSTRUCTOR, _, _, _, _)                                       =>
+      case DefDef(_, _, _, _, _, _) if tree.symbol != null && tree.symbol.isConstructor =>
+//      case DefDef(_, _, _, _, tpt, _) if tpt.tpe =:= NothingTpe                         =>
+      // ignore overriden methods, the parameter might be used by other classes
+      case DefDef(mods, _, _, _, _, _) if mods.isOverride ||
+        mods.hasFlag(Flags.OVERRIDE) ||
+        (tree.symbol != null && (tree.symbol.isAnyOverride || tree.symbol.isOverridingSymbol)) =>
+      case d @ DefDef(mods, _, _, valDefs, _, rhs) => {
+        println(mods)
+        println(mods.isDeferred)
+        println(showRaw(mods))
         // get all params, it's a list of ValDef
         paramNames.clear()
         for (valDef <- valDefs) {
