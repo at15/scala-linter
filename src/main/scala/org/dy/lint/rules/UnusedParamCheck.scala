@@ -13,7 +13,7 @@ class UnusedParamCheck(val global: Global) extends PluginComponent {
   val phaseName = "unused param check"
   override val description = "unuused param"
   // TODO:which phase should it runAfter...
-  override val runsAfter = List("parser")
+  override val runsAfter = List("typer")
 
   def newPhase(prev: Phase) = new UnusedParamCheckPhase(prev)
 

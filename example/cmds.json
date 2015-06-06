@@ -1,0 +1,9 @@
+{
+  "name":"Test all rules",
+  "cmds" : [
+    {
+      "name":"param check",
+      "cmd":"scalac -Xplugin:scala-linter_2.11-0.0.1.jar -Xprint:all param.scala"
+    }
+  ]
+}
