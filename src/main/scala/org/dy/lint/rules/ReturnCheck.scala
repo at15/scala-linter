@@ -31,7 +31,6 @@ class ReturnCheck(val global: Global) extends PluginComponent {
         case _ => super.traverse(tree)
       }
     }
-
   }
 
 }

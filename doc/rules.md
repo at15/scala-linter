@@ -1,6 +1,26 @@
 # Rules that this linter support
 
-## Numeric operations check
+# Unused parameters
+
+enable it by adding `-P:DeadCodeDetect:unused_param_check` to `scalacOptions`
+
+- unused parameters in methods or functions `def hi(a:String,b:String){println("hi")}` 
+
+# Return 
+
+enable it by adding `-P:DeadCodeDetect:return_check` to `scalacOptions`
+
+- return constant `def a ={val x = 1;2}` 
+
+# If 
+
+enable it by adding `-P:DeadCodeDetect:if_check` to `scalacOptions`
+
+- always false `if(false)` quite silly.
+
+## Numeric operations 
+
+enable it by adding `-P:DeadCodeDetect:numeric_check` to `scalacOptions`
 
 code that has no impact to final result
 
