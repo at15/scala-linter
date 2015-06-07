@@ -17,9 +17,11 @@ class NumericCheck(val global: Global) extends PluginComponent {
   def newPhase(prev: Phase) = new NumericCheckPhase(prev)
 
   class NumericCheckPhase(prev: Phase) extends StdPhase(prev) {
-    // TODO:what is ComilationUnit
-    // TODO:add mod by one at same time
     override def apply(unit: CompilationUnit) {
+      if(!Config.isEnabled(NumericCheck.this.phaseName)){
+        println("numeric check is not enabled, skipp")
+        return
+      }
       for (tree@Apply(Select(receiver, operator), List(Literal(Constant(denominator)))) <- unit.body;
            if (receiver.tpe <:< definitions.IntClass.tpe) && (operator == nme.DIV || operator == nme.MOD)) {
         denominator match {

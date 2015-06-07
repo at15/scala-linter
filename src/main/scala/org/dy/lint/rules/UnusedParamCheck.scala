@@ -21,8 +21,11 @@ class UnusedParamCheck(val global: Global) extends PluginComponent {
   def newPhase(prev: Phase) = new UnusedParamCheckPhase(prev)
 
   class UnusedParamCheckPhase(prev: Phase) extends StdPhase(prev) {
-    //      Block(List(DefDef(Modifiers(), TermName("bark"), List(), List(List(ValDef(Modifiers(PARAM), TermName("name"), Select(Ident(scala.Predef), TypeName("String")), EmptyTree))), Ident(scala.Unit), Apply(Select(Ident(scala.Predef), TermName("println")), List(Literal(Constant("a")))))), Literal(Constant(())))
     override def apply(unit: CompilationUnit): Unit = {
+      if(!Config.isEnabled(UnusedParamCheck.this.phaseName)){
+        println("unused param check is not enabled, skipp")
+        return
+      }
       UnusedParamCheckTraverse.traverse(unit.body)
     }
   }

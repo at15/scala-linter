@@ -17,6 +17,10 @@ class IfCheck(val global: Global) extends PluginComponent {
 
   class IfCheckPhase(prev: Phase) extends StdPhase(prev) {
     override def apply(unit: CompilationUnit): Unit = {
+      if (!Config.isEnabled(IfCheck.this.phaseName)) {
+        // TODO:warn? ...
+        println("if check is not enabled!")
+      }
       IfCheckTraverse.traverse(unit.body)
     }
 
