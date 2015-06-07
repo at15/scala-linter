@@ -4,7 +4,6 @@ import scala.tools.nsc._
 import scala.tools.nsc.plugins.PluginComponent
 
 class NumericCheck(val global: Global) extends PluginComponent {
-  println("NumericCheckComponent loaded!")
 
   import global._
 
@@ -27,12 +26,12 @@ class NumericCheck(val global: Global) extends PluginComponent {
         denominator match {
           // type 3, dead code with side effects
           case 0 => if (operator == nme.DIV)
-            global.reporter.warning(tree.pos, "[NumericCheck] Div by zero")
-          else global.reporter.warning(tree.pos, "[NumericCheck] Mod by zero")
+            global.reporter.warning(tree.pos, "[numeric check] Div by zero")
+          else global.reporter.warning(tree.pos, "[numeric check] Mod by zero")
           // type 2, code that don't contribute to final result
           case 1 => if (operator == nme.DIV)
-            global.reporter.warning(tree.pos, "[NumericCheck] Div by one")
-          else global.reporter.warning(tree.pos, "[NumericCheck] Mod by one")
+            global.reporter.warning(tree.pos, "[numeric check] Div by one")
+          else global.reporter.warning(tree.pos, "[numeric check] Mod by one")
         }
       }
     }

@@ -25,9 +25,8 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
   )
 
   override def init(options: List[String], error: String => Unit): Boolean = {
-    println("I am processing options!")
     for(option <- options){
-      println("I got " + option)
+//      println("I got " + option)
       if(option.startsWith("enable")){
         // TODO: phase name has space currently, but you can have space in command line, so use _ and replace it with
         // space when process the options....

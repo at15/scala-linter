@@ -4,7 +4,6 @@ import scala.tools.nsc._
 import scala.tools.nsc.plugins.PluginComponent
 
 class ReturnCheck(val global: Global) extends PluginComponent {
-  println("ReturnCheckComponent loaded!")
 
   import global._
 
@@ -26,9 +25,8 @@ class ReturnCheck(val global: Global) extends PluginComponent {
 
     private object ReturnConstantCheckTraverse extends Traverser {
       override def traverse(tree: Tree): Unit = tree match {
-        // TODO:remove b and other debug code
         case DefDef(_, _, _, _, _, Literal(Constant(a))) =>
-          global.reporter.warning(tree.pos, "[ReturnCheck] constant " + a + " is returned")
+          global.reporter.warning(tree.pos, "[return check] constant " + a + " is returned")
           super.traverse(tree) // TODO: even add the traverse, we still can't detect a nested one.
         case _ => super.traverse(tree)
       }
