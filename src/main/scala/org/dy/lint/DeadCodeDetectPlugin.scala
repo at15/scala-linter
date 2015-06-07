@@ -23,6 +23,14 @@ class DeadCodeDetectPlugin(val global: Global) extends Plugin {
     UnusedParamCheckComponent
   )
 
+  override def init(options: List[String], error: String => Unit): Boolean = {
+    println("I am processing options!")
+    for(option <- options){
+      println("I got " + option)
+    }
+    true
+  }
+
   private object NumericCheckComponent extends NumericCheck(global)
 
   private object ReturnCheckComponent extends ReturnCheck(global)
