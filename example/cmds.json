@@ -4,6 +4,10 @@
     {
       "name":"param check",
       "cmd":"scalac -Xplugin:scala-linter_2.11-0.0.1.jar -Xprint:all param.scala"
+    },
+    {
+      "name":"test param",
+      "cmd":"scalac -Xplugin:scala-linter_2.11-0.0.1.jar -P:DeadCodeDetect:enable:IfCheck -P:DeadCodeDetect:disable:All param.scala"
     }
   ]
 }
