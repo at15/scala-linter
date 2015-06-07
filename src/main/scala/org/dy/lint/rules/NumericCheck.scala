@@ -18,8 +18,8 @@ class NumericCheck(val global: Global) extends PluginComponent {
 
   class NumericCheckPhase(prev: Phase) extends StdPhase(prev) {
     override def apply(unit: CompilationUnit) {
-      if(!Config.isEnabled(NumericCheck.this.phaseName)){
-        println("numeric check is not enabled, skipp")
+      if (!Config.isEnabled(NumericCheck.this.phaseName)) {
+        //        println("numeric check is not enabled, skipp")
         return
       }
       for (tree@Apply(Select(receiver, operator), List(Literal(Constant(denominator)))) <- unit.body;

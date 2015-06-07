@@ -17,7 +17,7 @@ object Config {
 
   // TODO:currently we are using phaseName to represent each rules, which is a bad idea...
   def enable(rule: String) = {
-    println("need to enable rule!" + rule)
+    //    println("need to enable rule!" + rule)
     if (allRules.contains(rule)) {
       enabledRules.add(rule)
     } else {
@@ -31,8 +31,8 @@ object Config {
     enabledRules.remove(rule)
   }
 
-  def isEnabled(rule:String) : Boolean = {
-    println("check if is enabled!" + enabledRules)
+  def isEnabled(rule: String): Boolean = {
+    //    println("check if is enabled!" + enabledRules)
     enabledRules.contains(rule)
   }
 }

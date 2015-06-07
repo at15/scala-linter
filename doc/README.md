@@ -18,8 +18,22 @@ scala -cp . Unused
 ````
 scalacOptions ++= Seq[String]("-Xplugin:lib/scala-linter_2.11-0.0.1.jar")
 ````
+- to enable certain rules
+````
+scalacOptions ++= Seq[String]("-Xplugin:lib/scala-linter_2.11=0.0.1.jar","-P:DeadCodeDetect:enable:if_check")
+````
 Then plugin will be loaded
 
+TODO:the method in scala-abide's doc.
+```scala
+libraryDependencies += compilerPlugin("com.typesafe" %% "abide" % "0.1-SNAPSHOT")
+scalacOptions ++= Seq(
+  "-P:abide:abidecp:<some.rules.classpath>",
+  "-P:abide:ruleClass:<some.rule.Class>",
+  "-P:abide:analyzerClass:<some.analyzer.generator.Module>",
+  "-P:abide:presenterClass:<some.presenter.generator.Module>",
+  ...)
+```
 NOTE:Use `addCompilerPlugin` is not working, I don't know why though.
 
 ## Other

@@ -17,8 +17,8 @@ class ReturnCheck(val global: Global) extends PluginComponent {
 
   class ReturnCheckPhase(prev: Phase) extends StdPhase(prev) {
     override def apply(unit: CompilationUnit): Unit = {
-      if(!Config.isEnabled(ReturnCheck.this.phaseName)){
-        println("Return check is disabled, skipp")
+      if (!Config.isEnabled(ReturnCheck.this.phaseName)) {
+        //        println("Return check is disabled, skipp")
         return
       }
       ReturnConstantCheckTraverse.traverse(unit.body)
