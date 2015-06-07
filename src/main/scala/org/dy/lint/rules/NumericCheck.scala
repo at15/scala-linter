@@ -32,6 +32,7 @@ class NumericCheck(val global: Global) extends PluginComponent {
           case 1 => if (operator == nme.DIV)
             global.reporter.warning(tree.pos, "[numeric check] Div by one")
           else global.reporter.warning(tree.pos, "[numeric check] Mod by one")
+          case _ => // do nothing
         }
       }
     }
