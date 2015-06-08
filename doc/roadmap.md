@@ -23,12 +23,12 @@ Detect the following three types of dead code
 
 R1 write own linter
 
-- [ ] T1 statement after return
-- [ ] T1 if branch never executed, never match etc.
-- [ ] T2 unused var
-- [ ] T2 var has no contribution to final result
+- [x] T1 statement after return
+- [x] T1 if branch never executed, never match etc.
+- [x] ~~T2 unused var~~
+- [x] ~~T2 var has no contribution to final result~~
 - [ ] T3 T2 which throw exception or cause IO
-- [ ] apply it to a small  
+- [x] apply it to a small  
 - [ ] autofixer
 - [x] apply compiler plugin to scala lang
 - [x] write sample deadcode

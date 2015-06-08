@@ -21,5 +21,6 @@ Test if dead code is affecting scalac's speed.
 
 ## Related projects
 
+- [log formatter](https://github.com/at15/scalac-log-formatter)
 - [A demo project that use this linter](https://github.com/at15/lint-me)
 - [A Forked scala for apply this linter on it](https://github.com/at15/scala)
