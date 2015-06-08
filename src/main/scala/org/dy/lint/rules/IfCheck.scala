@@ -30,6 +30,8 @@ class IfCheck(val global: Global) extends PluginComponent {
         case If(cond, thenp, elsep) =>
           if (cond.toString() == "false")
             global.reporter.warning(tree.pos, "[if check] condition is always false")
+          if (cond.toString() == "true")
+            global.reporter.warning(tree.pos, "[if check] condition is always true")
           super.traverse(tree) // TODO: detect nested one?  yes , but tree is bfs right ?... e... confused
         case _ => super.traverse(tree)
       }
